@@ -1,0 +1,205 @@
+﻿<?xml version="1.0" encoding="utf-8" ?> 
+<Data_Definition Namespace="ReViewRPC">
+	<Import Module="builtin_types.interop.xml" />
+
+	<Using Source="Lemniscate" />
+	 
+	<Output Language="C#"  File="ReView.interop.cs" />
+	<Output Language="C++" File="../_CPPTest/ReView.interop.hpp" />
+
+	<Interface Name="IReView_Feed" Index="0">
+		<Method Name="SendBackBinaryData">
+			<Arg Type="Vector(Int64)" Name="idList"/>
+			<Arg Type="Vector(Int32)" Name="timeList"/>
+			<Arg Type="Vector(Vector(Uint8))" Name="dataList"/>
+		</Method>
+
+		<Method Name="SelectionChanged">
+			<Arg Type="Int64" Name="selected_id"/>
+		</Method>
+
+		<Method Name="DebugToggleChanged">
+			<Arg Type="string" Name="name"/>
+			<Arg Type="bool" Name="state"/>
+		</Method>
+	</Interface>
+	
+	<Interface Name="IReView_Tool" Index="1">
+		<!-- Generic Utility -->
+
+		<Method Name="Heartbeat">
+			<Arg Type="Int32" Name="time" />
+		</Method>
+
+		<!-- Selection and DebugToggle Synchronization -->
+
+		<Method Name="DebugToggleChanged">
+			<Arg Type="string" Name="name"/>
+			<Arg Type="bool" Name="state"/>
+		</Method>
+
+		<!-- BinaryStorage -->
+		
+		<Method Name="StoreBinaryData">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Vector(Uint8)" Name="data"/>
+		</Method>
+	</Interface>
+
+	<Interface Name="IReView_HierarchicalTimelineLog" Index="2">
+		<!-- Hierarchical Timeline Log -->
+
+		<Method Name="SelectionChanged">
+			<Arg Type="Int64" Name="selected_id"/>
+		</Method>
+		
+		<Method Name="AddTrack">
+			<Arg Type="Int64" Name="parent_id"/>
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="string" Name="name"/>
+		</Method>
+
+		<Method Name="AddItem">
+			<Arg Type="Int64" Name="parent_id"/>
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="string" Name="name"/>
+		</Method>
+
+		<Method Name="AddGenericItem">
+			<Arg Type="Int64" Name="parent_id"/>
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="string" Name="name"/>
+		</Method>
+
+		<Method Name="EndItem">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+		</Method>
+
+		<Method Name="AppendLog">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Uint32" Name="flags"/>
+			<Arg Type="string" Name="content"/>
+		</Method>
+	</Interface>
+
+	<Interface Name="IReView_RemoteDebugRenderer" Index="3">
+		<!-- Remote Debug Rendering -->
+
+		<Method Name="RemoveAllPrimitives">
+			<Arg Type="Int32" Name="time"/>
+		</Method>
+
+		<Method Name="RemoveAllAnnotations">
+			<Arg Type="Int32" Name="time"/>
+		</Method>
+		
+		<Method Name="AddAnnotation">
+			<Arg Type="Int64" Name="primitive_id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Int32" Name="duration"/>
+			<Arg Type="string" Name="text"/>
+			<Arg Type="Color" Name="color"/>
+		</Method>
+		
+		<Method Name="AddBox">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Int32" Name="duration"/>
+			<Arg Type="Matrix3D" Name="transform"/>
+			<Arg Type="Vector3D" Name="pivot"/>
+			<Arg Type="Vector3D" Name="half_size"/>
+			<Arg Type="Color" Name="color"/>
+		</Method>
+
+		<Method Name="RemovePrimitive">
+			<Arg Type="Int64" Name="primitive_id"/>
+			<Arg Type="Int32" Name="time"/>
+		</Method>
+
+		<Method Name="RemoveAnnotation">
+			<Arg Type="Int64" Name="primitive_id"/>
+			<Arg Type="Int32" Name="time"/>
+		</Method>
+
+		<Method Name="AddCylinder">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Int32" Name="duration"/>
+			<Arg Type="Matrix3D" Name="transform"/>
+			<Arg Type="Vector3D" Name="pivot"/>
+			<Arg Type="Float64" Name="top_radius"/>
+			<Arg Type="Float64" Name="bottom_radius_scale"/>
+			<Arg Type="Float64" Name="height"/>
+			<Arg Type="Int32" Name="segments"/>
+			<Arg Type="Color" Name="color"/>
+			<Arg Type="bool" Name="create_caps"/>
+		</Method>
+		
+		<Method Name="AddCone">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Int32" Name="duration"/>
+			<Arg Type="Matrix3D" Name="transform"/>
+			<Arg Type="Vector3D" Name="pivot"/>
+			<Arg Type="Float64" Name="radius"/>
+			<Arg Type="Float64" Name="height"/>
+			<Arg Type="Int32" Name="segments"/>
+			<Arg Type="Color" Name="color"/>
+			<Arg Type="bool" Name="create_caps"/>
+		</Method>
+
+		<Method Name="AddMesh">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Int32" Name="duration"/>
+			<Arg Type="Matrix3D" Name="transform"/>
+			<Arg Type="Vector3D" Name="pivot"/>
+		</Method>
+
+		<Method Name="AddTriangle">
+			<Arg Type="Int64" Name="mesh_id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Vector3D" Name="a"/>
+			<Arg Type="Vector3D" Name="b"/>
+			<Arg Type="Vector3D" Name="c"/>
+			<Arg Type="Color" Name="color"/>
+		</Method>
+
+		<Method Name="AddLine">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Int32" Name="duration"/>
+			<Arg Type="Vector3D" Name="start"/>
+			<Arg Type="Vector3D" Name="end"/>
+			<Arg Type="Color" Name="color"/>
+		</Method>
+
+		<Method Name="AddCircle">
+			<Arg Type="Int64" Name="id"/>
+			<Arg Type="Int32" Name="time"/>
+			<Arg Type="Int32" Name="duration"/>
+			<Arg Type="Vector3D" Name="center"/>
+			<Arg Type="Float64" Name="radius"/>
+			<Arg Type="Vector3D" Name="up"/>
+			<Arg Type="Int32" Name="segments"/>
+			<Arg Type="Color" Name="color"/>
+		</Method>
+	</Interface>
+
+	<Stub Type="RPC_Client_Proxy" Interface="IReView_Tool" Language="C#,C++"/>
+	<Stub Type="RPC_Server_Proxy" Interface="IReView_Tool" Language="C#"/>
+
+	<Stub Type="RPC_Client_Proxy" Interface="IReView_HierarchicalTimelineLog" Language="C#,C++"/>
+	<Stub Type="RPC_Server_Proxy" Interface="IReView_HierarchicalTimelineLog" Language="C#"/>
+
+	<Stub Type="RPC_Client_Proxy" Interface="IReView_RemoteDebugRenderer" Language="C#,C++"/>
+	<Stub Type="RPC_Server_Proxy" Interface="IReView_RemoteDebugRenderer" Language="C#"/>
+
+	<Stub Type="RPC_Client_Proxy" Interface="IReView_Feed" Language="C#,C++"/>
+	<Stub Type="RPC_Server_Proxy" Interface="IReView_Feed" Language="C#"/>
+</Data_Definition>

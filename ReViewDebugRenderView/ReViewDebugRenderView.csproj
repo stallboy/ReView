@@ -1,0 +1,127 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D029FA5D-7845-42A5-A767-A9A32B08D2B5}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReViewDebugRenderView</RootNamespace>
+    <AssemblyName>ReViewDebugRenderView</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release x64|AnyCPU'">
+    <OutputPath>bin\Release x64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug x64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug x64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Camera.cs" />
+    <Compile Include="DebugRenderAnnotation.cs" />
+    <Compile Include="DebugRenderControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="DebugRenderControl.Designer.cs">
+      <DependentUpon>DebugRenderControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="OpenGLDrawHelper.cs" />
+    <Compile Include="Primitives\DebugRenderCircle.cs" />
+    <Compile Include="Primitives\DebugRenderBox.cs" />
+    <Compile Include="Primitives\DebugRenderCone.cs" />
+    <Compile Include="Primitives\DebugRenderCylinder.cs" />
+    <Compile Include="Primitives\DebugRenderLine.cs" />
+    <Compile Include="Primitives\DebugRenderPrimitive.cs" />
+    <Compile Include="DebugRenderSession.cs" />
+    <Compile Include="Primitives\DebugRenderTriMesh.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReViewUtilsMedia\ReViewUtilsMedia.csproj">
+      <Project>{d69e3328-fbbe-4652-b03f-ac1d421e6a2c}</Project>
+      <Name>ReViewUtilsMedia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewUtils\ReViewUtils.csproj">
+      <Project>{2ff0448c-788c-4221-81df-e52748fef251}</Project>
+      <Name>ReViewUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpGL.Core\SharpGL.SceneGraph\SharpGL.SceneGraph.csproj">
+      <Project>{47bcaa39-edad-4404-b6bd-4742b0abb523}</Project>
+      <Name>SharpGL.SceneGraph</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpGL.Core\SharpGL.WinForms\SharpGL.WinForms.csproj">
+      <Project>{B2984A6D-AD1C-4BE9-94AB-BA002B338751}</Project>
+      <Name>SharpGL.WinForms</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SharpGL.Core\SharpGL\SharpGL.csproj">
+      <Project>{5ef45533-e2c7-46f2-b4a3-b8f36cd406e0}</Project>
+      <Name>SharpGL</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="DebugRenderControl.resx">
+      <DependentUpon>DebugRenderControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

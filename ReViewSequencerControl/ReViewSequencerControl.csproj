@@ -1,0 +1,125 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D198864E-62CB-408B-A29C-9C9EB47DCAE2}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReView</RootNamespace>
+    <AssemblyName>ReViewSequencerControl</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+    <PlatformTarget>x86</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release x64|AnyCPU'">
+    <OutputPath>bin\Release x64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug x64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug x64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>true</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>true</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Selection.cs" />
+    <Compile Include="SequencerDataModel.cs" />
+    <Compile Include="TrackableObject.cs" />
+    <Compile Include="Item.cs" />
+    <Compile Include="Track.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SequencerControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SequencerControl.Designer.cs">
+      <DependentUpon>SequencerControl.cs</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="SequencerControl.resx">
+      <DependentUpon>SequencerControl.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReViewOverviewControl\ReViewOverviewControl.csproj">
+      <Project>{F5CA9564-F6F7-494F-A000-8BDFE711D3A8}</Project>
+      <Name>ReViewOverviewControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewUtilsMedia\ReViewUtilsMedia.csproj">
+      <Project>{d69e3328-fbbe-4652-b03f-ac1d421e6a2c}</Project>
+      <Name>ReViewUtilsMedia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewViewportContainer\ReViewViewportContainer.csproj">
+      <Project>{0FB475A1-EBF8-43A5-ABFD-754A02B76F47}</Project>
+      <Name>ReViewViewportContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewLogUtils\ReViewLogUtils.csproj">
+      <Project>{1F2D204B-7E86-4F29-BDC2-22AE52896B1C}</Project>
+      <Name>ReViewLogUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewTimelineControl\ReViewTimelineControl.csproj">
+      <Project>{7303D36C-0EAD-4EC7-A960-1370E9FBA81A}</Project>
+      <Name>ReViewTimelineControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewUtils\ReViewUtils.csproj">
+      <Project>{2FF0448C-788C-4221-81DF-E52748FEF251}</Project>
+      <Name>ReViewUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

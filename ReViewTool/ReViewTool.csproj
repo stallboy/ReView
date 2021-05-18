@@ -1,0 +1,288 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{E7260411-C43A-497E-83FB-F26D315F9557}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ReViewTool</RootNamespace>
+    <AssemblyName>ReViewTool</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>
+    </TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release x64|AnyCPU'">
+    <OutputPath>bin\Release x64\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug x64|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\Debug x64\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>ManagedMinimumRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>flowicon32x32.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Modules\DebugModule.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\DebugModuleManager.cs" />
+    <Compile Include="Modules\HierarchicalTimelineLog\HTLCustomizeDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\HierarchicalTimelineLog\HTLCustomizeDialog.Designer.cs">
+      <DependentUpon>HTLCustomizeDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HierarchicalTimelineLog\HierarchicalTimelineLog.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\HierarchicalTimelineLog\HierarchicalTimelineLog.designer.cs">
+      <DependentUpon>HierarchicalTimelineLog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HierarchicalTimelineLog\HTLButtonContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\HierarchicalTimelineLog\HTLButtonContainer.Designer.cs">
+      <DependentUpon>HTLButtonContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\HierarchicalTimelineLog\HTLSession.cs" />
+    <Compile Include="Modules\RemoteDebugRenderer\RDRButtonContainer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\RemoteDebugRenderer\RDRButtonContainer.Designer.cs">
+      <DependentUpon>RDRButtonContainer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RemoteDebugRenderer\RDRSession.cs" />
+    <Compile Include="Modules\RemoteDebugRenderer\RemoteDebugRenderer.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Modules\RemoteDebugRenderer\RemoteDebugRenderer.designer.cs">
+      <DependentUpon>RemoteDebugRenderer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Modules\RemoteDebugRenderer\SelectionInfo.cs" />
+    <Compile Include="DataGridViewColorPickerCell.cs" />
+    <Compile Include="ConnectDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConnectDialog.Designer.cs">
+      <DependentUpon>ConnectDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="PreferencesDialog.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PreferencesDialog.Designer.cs">
+      <DependentUpon>PreferencesDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridViewColorPickerColumn.cs" />
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplashScreen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SplashScreen.Designer.cs">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TimelineSession.cs" />
+    <Compile Include="UserPreferencesManager.cs" />
+    <Compile Include="VerticalButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="VerticalButton.Designer.cs">
+      <DependentUpon>VerticalButton.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ConnectDialog.resx">
+      <DependentUpon>ConnectDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\HierarchicalTimelineLog\HTLCustomizeDialog.resx">
+      <DependentUpon>HTLCustomizeDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\HierarchicalTimelineLog\HierarchicalTimelineLog.resx">
+      <DependentUpon>HierarchicalTimelineLog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\HierarchicalTimelineLog\HTLButtonContainer.resx">
+      <DependentUpon>HTLButtonContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\RemoteDebugRenderer\RDRButtonContainer.resx">
+      <DependentUpon>RDRButtonContainer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Modules\RemoteDebugRenderer\RemoteDebugRenderer.resx">
+      <DependentUpon>RemoteDebugRenderer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PreferencesDialog.resx">
+      <DependentUpon>PreferencesDialog.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SplashScreen.resx">
+      <DependentUpon>SplashScreen.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Lemniscate.RPC\Lemniscate.RPC.csproj">
+      <Project>{dc320fd4-76ae-41da-8dec-85c818cc7b0a}</Project>
+      <Name>Lemniscate.RPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewBinaryStorage\ReViewBinaryStorage.csproj">
+      <Project>{ffd7bb6f-5980-47ae-b35a-20015394697c}</Project>
+      <Name>ReViewBinaryStorage</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewDebugRenderView\ReViewDebugRenderView.csproj">
+      <Project>{d029fa5d-7845-42a5-a767-a9a32b08d2b5}</Project>
+      <Name>ReViewDebugRenderView</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewOverviewControl\ReViewOverviewControl.csproj">
+      <Project>{f5ca9564-f6f7-494f-a000-8bdfe711d3a8}</Project>
+      <Name>ReViewOverviewControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewRPC\ReViewRPC.csproj">
+      <Project>{00e12f76-6035-4266-8f3e-9342211a7dec}</Project>
+      <Name>ReViewRPC</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewUtilsMedia\ReViewUtilsMedia.csproj">
+      <Project>{d69e3328-fbbe-4652-b03f-ac1d421e6a2c}</Project>
+      <Name>ReViewUtilsMedia</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewViewportContainer\ReViewViewportContainer.csproj">
+      <Project>{0FB475A1-EBF8-43A5-ABFD-754A02B76F47}</Project>
+      <Name>ReViewViewportContainer</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewLogUtils\ReViewLogUtils.csproj">
+      <Project>{1F2D204B-7E86-4F29-BDC2-22AE52896B1C}</Project>
+      <Name>ReViewLogUtils</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewSequencerControl\ReViewSequencerControl.csproj">
+      <Project>{D198864E-62CB-408B-A29C-9C9EB47DCAE2}</Project>
+      <Name>ReViewSequencerControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewTimelineControl\ReViewTimelineControl.csproj">
+      <Project>{7303D36C-0EAD-4EC7-A960-1370E9FBA81A}</Project>
+      <Name>ReViewTimelineControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReViewUtils\ReViewUtils.csproj">
+      <Project>{2FF0448C-788C-4221-81DF-E52748FEF251}</Project>
+      <Name>ReViewUtils</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\connect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\disconnect.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\flowicon32x32-transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Images\flowicon32x32-black-transparent.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="flowicon32x32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PostBuildEvent>IF EXIST "$(SolutionDir)Builds\$(ConfigurationName)\$(ProjectName)" GOTO CHECKIMAGES
+mkdir "$(SolutionDir)Builds\$(ConfigurationName)\$(ProjectName)"
+:CHECKIMAGES
+IF EXIST "$(SolutionDir)Builds\$(ConfigurationName)\$(ProjectName)\Images" GOTO COPYFILES
+mkdir "$(SolutionDir)Builds\$(ConfigurationName)\$(ProjectName)\Images"
+:COPYFILES
+copy "$(ProjectDir)$(OutDir)ReViewTool.exe" "$(SolutionDir)Builds\$(ConfigurationName)\$(ProjectName)" /Y
+copy "$(ProjectDir)$(OutDir)*.dll" "$(SolutionDir)Builds\$(ConfigurationName)\$(ProjectName)" /Y
+copy "$(ProjectDir)\Images\*.*" "$(SolutionDir)Builds\$(ConfigurationName)\$(ProjectName)\Images" /Y</PostBuildEvent>
+  </PropertyGroup>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

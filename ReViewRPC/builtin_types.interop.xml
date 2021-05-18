@@ -1,0 +1,31 @@
+<Data_Definition Namespace="Lemniscate">
+	<Include Source="interop.hpp" />
+	<Include Source="vector" Stdlib="true"/>
+
+	<!--Primitive Types-->
+	<Builtin_Type Name="bool"			Size="1"	Alignment="1"	CS_Name="bool"		CPP_Name="bool"									/>
+	<Builtin_Type Name="Bool"			Size="1"	Alignment="1"	CS_Name="bool"		CPP_Name="bool"									/>
+	<Builtin_Type Name="Byte"			Size="1"	Alignment="1"	CS_Name="byte"		CPP_Name="unsigned char"						/>
+	<Builtin_Type Name="Int8"			Size="1"	Alignment="1"	CS_Name="sbyte"		CPP_Name="char"									/>
+	<Builtin_Type Name="Uint8"			Size="1"	Alignment="1"	CS_Name="byte"		CPP_Name="unsigned char"						/>
+	<Builtin_Type Name="Int16"			Size="2"	Alignment="2"	CS_Name="short"		CPP_Name="short"								/>
+	<Builtin_Type Name="Uint16"			Size="2"	Alignment="2"	CS_Name="ushort"	CPP_Name="unsigned short"						/>
+	<Builtin_Type Name="Int32"			Size="4"	Alignment="4"	CS_Name="int"		CPP_Name="int"									/>
+	<Builtin_Type Name="Uint32"			Size="4"	Alignment="4"	CS_Name="uint"		CPP_Name="unsigned int"							/>
+	<Builtin_Type Name="Int64"			Size="8"	Alignment="8"	CS_Name="long"		CPP_Name="long long"							/>
+	<Builtin_Type Name="Uint64"			Size="8"	Alignment="8"	CS_Name="ulong"		CPP_Name="unsigned long long"					/>
+	<Builtin_Type Name="Float32"		Size="4"	Alignment="4"	CS_Name="float"		CPP_Name="float"								/>
+	<Builtin_Type Name="Float64"		Size="8"	Alignment="8"	CS_Name="double"	CPP_Name="double"								/>
+	
+	<!--String types, the former to be used as an IN param, the latter as an OUT-->
+	<Builtin_Type Name="string"			Size="16"	Alignment="8"	CS_Name="string"	CPP_Name="const char*"							/>
+	<Builtin_Type Name="String"			Size="16"	Alignment="8"	CS_Name="string"	CPP_Name="const char*"	CPP_Pass_By="Ref"		/>
+
+	<!--Generic Types-->
+	<Builtin_Type Name="Slice()"		Size="16"	Alignment="8"	CS_Name="[]"		CPP_Name="std::vector()"						/>
+	<Builtin_Type Name="Vector()"		Size="24"	Alignment="8"	CS_Name="[]"		CPP_Name="std::vector()"						/>
+
+	<Builtin_Type Name="Matrix3D"		CS_Name="ReView.Matrix4x4"		CPP_Name="Matrix3D"		Size="12" Alignment="8"		CPP_Pass_By="Ref"/>
+	<Builtin_Type Name="Vector3D"		CS_Name="ReView.Vector3"		CPP_Name="Vector3D"		Size="12" Alignment="8"		CPP_Pass_By="Ref"/>
+	<Builtin_Type Name="Color"			CS_Name="ReView.Color32"		CPP_Name="Color"		Size="12" Alignment="8"		CPP_Pass_By="Ref"/>
+</Data_Definition>
